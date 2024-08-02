@@ -1,0 +1,57 @@
+<div class="max-w-md mx-auto bg-white px-4 py-8 rounded-lg shadow-md">
+  <h2 class="text-base font-bold mb-4">Order summary ({{shoppingCart.length}})</h2>
+  <div *ngIf="shoppingCart.length > 0">
+    <ng-container *ngFor="let item of shoppingCart">
+      <div class="mb-4" *ngIf="item && item.selectedPlan">
+        <div class="flex justify-between items-center mb-2">
+          <span class="font-semibold">{{item.selectedPlan.name}}</span>
+          <div class="flex items-center space-x-2">
+            <span class="font-semibold">{{item.annual ? (getPrice(item) | currency)  + '/yr' : (getPrice(item) |currency) + '/mo'}}</span>
+
+            <span class="font-semibold cursor-pointer" (click)="removeFromCart(item)">×</span>
+          </div>
+        </div>
+        <p class="text-sm text-gray-600">{{item.spaces}} Spaces, {{item.selectedPlan.users}} users</p>
+        <p class="text-sm text-gray-600">Renews automatically on an {{item.annual ? 'annual' : 'montly'}} basis</p>
+      </div>
+    </ng-container>
+      <h3 class="text-lg font-semibold my-4">Today's total</h3>
+
+      <div class="flex justify-between items-center mb-4">
+        <span class="text-sm">Subscription subtotal</span>
+        <span class="font-semibold">{{totalBalance | currency}}</span>
+      </div>
+    
+  </div>
+
+  <div *ngIf="shoppingCart.length < 1" class="w-full flex justify-center items-center mt-8 mb-6">
+    <p>Cart is Empty</p>
+  </div>
+  <button [ngClass]="{'bg-gray-200 text-gray-500': shoppingCart.length < 1,'bg-gray-800 text-white':shoppingCart.length>0 }"
+    class="w-full py-2 rounded-md mb-4 font-semibold">
+    <span>🔒</span> Secure Checkout
+  </button>
+
+  <div *ngIf="shoppingCart.length > 0" class="flex items-center text-blue-600 mb-6 cursor-pointer">
+    <span class="mr-2">+</span>
+    <span>Add a promo code</span>
+  </div>
+
+  <div class="mb-6">
+    <h4 class="font-semibold mb-2">Accepted payment methods</h4>
+    <div class="flex flex-wrap gap-2">
+      <img src="https://checkoutshopper-live.adyen.com/checkoutshopper/images/logos/visa.svg" alt="visa">
+      <img src="https://checkoutshopper-live.adyen.com/checkoutshopper/images/logos/mc.svg" alt="mastercard">
+      <img src="https://checkoutshopper-live.adyen.com/checkoutshopper/images/logos/applepay.svg" alt="apple pay">
+      <img src="https://checkoutshopper-live.adyen.com/checkoutshopper/images/logos/googlepay.svg" alt="google pay">
+    </div>
+  </div>
+
+  <div>
+    <h4 class="font-semibold mb-2">Helpful links</h4>
+    <ul class="text-blue-600">
+      <li class="mb-1"><a href="#">Shipping information</a></li>
+      <li><a href="#">Returns policy</a></li>
+    </ul>
+  </div>
+</div>
