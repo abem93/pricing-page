@@ -1,0 +1,78 @@
+<div [ngClass]="{'border-2 border-violet-700': isSelected && selectedPlanName === planTypeName}"
+  class="max-w-sm mx-auto bg-white rounded-lg overflow-hidden shadow-lg h-full px-4 py-8 relative">
+  <ng-container *ngFor="let plan of planDetails">
+    <ng-container *ngIf="plan.name === planTypeName">
+      <div class="px-4 pt-6">
+        <span *ngIf="planTypeName =='Pro Plus'"
+          class="bg-cloudpano-blue text-white px-5 py-2 tracking-widest text-xs absolute right-0 top-0 rounded-bl-lg">POPULAR</span>
+        <h2 class="font-semibold mb-4 text-violet-700">{{planTypeName}}</h2>
+        <div class="flex items-baseline mb-2">
+          <span *ngIf="isAnnual" class="text-gray-500 sem line-through text-md mr-2">${{plan.price * spacesPerPlan[plan.name]}}</span>
+          <span class="text-3xl font-semibold">${{(isAnnual ? plan.discountPrice * spacesPerPlan[plan.name]  : plan.price * spacesPerPlan[plan.name]) | number:'1.2-2'}} </span>
+          <span class="text-gray-500 ml-1">/mo</span>
+        </div>
+          <p *ngIf="isAnnual; else monthly" class="mb-4 font-medium text-sm">Billed ${{ (isAnnual ? plan.discountPrice * spacesPerPlan[plan.name] * 12 : plan.price * 12) | number:'1.0-2' }}/year</p>
+          <ng-template #monthly>
+            <p class="mb-4 font-medium text-xs">Save ${{ ((plan.price - plan.discountPrice) * spacesPerPlan[plan.name] ) | number:'1.0-2' }}/mo with annual billing</p>
+          </ng-template>
+
+        <hr class="mb-6" />
+
+        <div class="mb-4">
+          <p class="mb-2">Active Spaces</p>
+          <div class="relative w-full mb-6">
+            <div class="slider-container relative" #sliderContainer>
+              <span class="slider-value absolute transition-all">{{displayValue}}</span>
+              <input type="range"
+                class="w-full pl-1 range accent-violet-700 cursor-ew-resize appearance-none rounded-full bg-gray-200 disabled:cursor-not-allowed"
+                [min]="0"
+                [max]="(findSelectedPlan(planTypeName)?.spaces?.length || 1) - 1"
+                [value]="sliderIndex"
+                (input)="onSliderChange($event, sliderContainer)"/>
+            </div>
+            <div class="relative w-full flex justify-between text-xs text-gray-600 pl-2 mt-1">
+              <span *ngFor="let spaces of findSelectedPlan(planTypeName)?.spaces">
+                {{ spaces }}
+              </span>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <div class="flex items-center mb-4">
+          <svg class="w-5 h-5 text-cloudpano-blue mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <path
+              d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z">
+            </path>
+          </svg>
+          <span>{{plan.users}} Users</span>
+        </div>
+
+
+        <button [ngClass]="{'text-violet-700 border-violet-700': isSelected && planTypeName === selectedPlanName, 'border-cloudpano-blue': planTypeName !== selectedPlanName}"
+          class="w-full bg-white border-2 border-cloudpano-blue text-cloudpano-blue font-bold py-2 px-4 rounded-md mb-4" (click)="planSelected()">
+          {{ isSelected && planTypeName === selectedPlanName ? 'Selected' : 'Select' }}
+        </button>
+
+
+        <h3 class="font-semibold mb-2">
+          <ng-container *ngIf="planTypeName === 'Pro'; else checkProPlus">
+            Top Features:
+          </ng-container>
+          <ng-template #checkProPlus>
+            <ng-container *ngIf="planTypeName === 'Pro Plus'; else enterprise">
+              All Pro features, plus:
+            </ng-container>
+          </ng-template>
+          <ng-template #enterprise>
+            All Pro Plus features, plus:
+          </ng-template>
+        </h3>
+        <ul class="list-disc list-inside ml-2 space-y-2">
+              <li *ngFor="let feature of plan.features">
+                {{ feature }}
+              </li>
+        </ul>
+    </ng-container>
+  </ng-container>
+</div>
