@@ -1,20 +1,28 @@
-<div class="fixed bottom-0 left-0 right-0 lg:relative lg:bottom-auto lg:left-auto lg:right-auto">
+<!-- Overlay -->
+<div class="fixed inset-0 bg-black lg:hidden transition-opacity duration-300 ease-in-out"
+     [ngClass]="{
+       'opacity-60 z-30': isOpen,
+       'opacity-0 -z-10': !isOpen
+     }">
+</div>
+
+<div class="fixed bottom-0 left-0 right-0 lg:relative lg:bottom-auto lg:left-auto lg:right-auto z-40">
   <div class="w-full relative flex flex-row-reverse px-4 py-2">
     <button class="bg-violet-700 rounded-full text-white hover:bg-violet-400 duration-300 transition-colors border border-transparent p-3 lg:hidden right-4"
-  [ngClass]="{
-    'hidden': !shouldDisplayButton(),
-    'bg-cloudpano-blue text-white hover:bg-cloudpano-blue focus:ring-4 focus:outline-none focus:ring-violet-200': shouldDisplayButton()
-  }"
-  (click)="continueCheckout()"
-  [disabled]="!shouldDisplayButton()">
-  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-    <path d="M24 12l-11-8v6h-13v4h13v6z" fill="white"/>
-  </svg>
-</button>
+      [ngClass]="{
+        'hidden': !shouldDisplayButton(),
+        'bg-cloudpano-blue text-white hover:bg-cloudpano-blue focus:ring-4 focus:outline-none focus:ring-violet-200': shouldDisplayButton()
+      }"
+      (click)="continueCheckout()"
+      [disabled]="!shouldDisplayButton()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+        <path d="M24 12l-11-8v6h-13v4h13v6z" fill="white"/>
+      </svg>
+    </button>
   </div>
   <!-- Dropdown toggle button -->
   <button (click)="toggleDropdown()"
-    class="relative z-10 max-h-fit flex items-center justify-between w-full p-2 py-4 text-sm text-gray-600 bg-white border border-transparent lg:rounded-t-xl focus:border-blue-500 focus:ring-opacity-40 focus:ring-blue-300 focus:ring focus:outline-none  lg:hidden">
+    class="relative z-40 max-h-fit flex items-center justify-between w-full p-2 py-4 text-sm text-gray-600 bg-white border border-transparent rounded-t-xl  lg:hidden">
     <h2 class="text-base font-bold"> <span class="mr-4 ml-2">🛒</span>Order summary ({{getTotalCartItemCount()}})</h2>
     <svg *ngIf="!isOpen" class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M12 8.287L5.99 14.297L7.403 15.712L12 11.112L16.596 15.712L18.01 14.298L12 8.287Z" fill="currentColor">
@@ -26,14 +34,14 @@
     </svg>
   </button>
 
-  
   <!-- Dropdown menu -->
   <div class="lg:block" [ngClass]="{'hidden': !isOpen}">
     <div
-      class="lg:static lg:w-auto lg:py-0 lg:mt-0 lg:bg-transparent  lg:right-0 lg:z-0 w-full  lg:bg-white lg:rounded-2xl shadow-sm"
+      class="lg:static lg:w-auto lg:py-0 lg:mt-0 lg:bg-transparent lg:right-0 lg:z-0 w-full lg:bg-white lg:rounded-2xl shadow-sm"
       (clickOutside)="closeDropdown()">
       <!-- Dropdown content -->
-      <div class="w-full lg:max-w-md mx-auto bg-white px-4 py-8 rounded-lg shadow-md contain-content overflow-y-auto lg:overflow-auto"
+      <div class="w-full lg:max-w-md mx-auto bg-white px-4 py-8 lg:rounded-lg shadow-md contain-content overflow-y-auto lg:overflow-auto"
+      [ngClass]="{'': isOpen}"
         style="max-height: calc(100vh - 8rem);">
         <h2 class="text-base font-bold mb-4 hidden md:block">Order summary ({{getTotalCartItemCount()}})</h2>
         <div *ngIf="shoppingCart.length > 0">
@@ -132,4 +140,4 @@
       </div>
     </div>
   </div>
-
+</div>
