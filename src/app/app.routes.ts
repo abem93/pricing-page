@@ -14,6 +14,9 @@ export const routes: Routes = [
   {
     path: '',
     children: [
+      {
+        path: '', pathMatch: 'full', redirectTo: '/plans'
+      },
       { path: 'plans', component: PlansPageComponent },
       {
         path: 'shop', component: PricingConfigComponent,
