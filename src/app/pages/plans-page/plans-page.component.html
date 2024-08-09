@@ -1,38 +1,36 @@
 <div class="bg-white py-2">
     <div class="container px-6 py-8 mx-auto">
-        <h1 class="text-4xl font-semibold text-center capitalize lg:text-3xl">Simple pricing plan</h1>
-        <p class="max-w-2xl mx-auto mt-4 text-center text-xl xl:mt-6">
-            Scale as your business grows. Pick a plan that's best for you.
-        </p>
+      <h1 class="text-4xl font-semibold text-center capitalize lg:text-3xl">Simple pricing plan</h1>
+      <p class="max-w-2xl mx-auto mt-4 text-center text-xl xl:mt-6">
+        Scale as your business grows. Pick a plan that's best for you.
+      </p>
     </div>
     <div class="flex justify-center mb-6">
-        <div class="flex flex-col md:flex-row items-center md:items-center relative">
-            <p
-                class="lg:w-auto leading-relaxed text-sm text-gray-500 mb-2 md:mb-0 text-center md:text-right md:absolute md:right-full md:mr-4 whitespace-nowrap">
-                Save up to 16% with annual billing
-            </p>
-            <div class="flex rounded-lg overflow-hidden bg-white xl:w-64 md:w-64 w-full max-w-xs">
-                <button [ngClass]="[isAnnual ? 'bg-cloudpano-blue text-white': 'bg-gray-100' ]"
-                    class="w-1/2 py-2 px-4 focus:outline-none text-centerrounded-l-xl"
-                    (click)="togglePricingMode('annual')">
-                    Annually
-                </button>
-                <button [ngClass]="[!isAnnual ? 'bg-cloudpano-blue text-white': 'bg-gray-100']"
-                    class="w-1/2 py-2 px-4 focus:outline-none text-center rounded-r-xl"
-                    (click)="togglePricingMode('monthly')">
-                    Monthly
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="flex justify-center">
-        <div class="w-full max-w-7xl px-4 py-2 sm:px-6 sm:py-12 lg:px-6 lg:py-6">
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 space-y-5">
-            <ng-container *ngFor="let plan of planDetails">
-              <app-plan-card [planType]="plan"/>
-            </ng-container>
-          </div>
+      <div class="flex flex-col md:flex-row items-center md:items-center relative">
+        <p class="lg:w-auto leading-relaxed text-sm text-gray-500 mb-2 md:mb-0 text-center md:text-right md:absolute md:right-full md:mr-4 whitespace-nowrap">
+          Save up to 16% with annual billing
+        </p>
+        <div class="flex rounded-lg overflow-hidden bg-white xl:w-64 md:w-64 w-full max-w-xs">
+          <button [ngClass]="[isAnnual ? 'bg-cloudpano-blue text-white': 'bg-gray-100' ]"
+            class="w-1/2 py-2 px-4 focus:outline-none text-centerrounded-l-xl"
+            (click)="togglePricingMode('annual')">
+            Annually
+          </button>
+          <button [ngClass]="[!isAnnual ? 'bg-cloudpano-blue text-white': 'bg-gray-100']"
+            class="w-1/2 py-2 px-4 focus:outline-none text-center rounded-r-xl"
+            (click)="togglePricingMode('monthly')">
+            Monthly
+          </button>
         </div>
       </div>
-      <app-plan-comparison-table />
-</div>
+    </div>
+    <div class="flex justify-center">
+      <div class="w-full max-w-7xl px-4 py-2 sm:px-6 sm:py-12 lg:px-6 lg:py-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-y-5">
+          <ng-container *ngFor="let plan of planDetails">
+            <app-plan-card [planType]="plan" class="h-full flex flex-col"/>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
