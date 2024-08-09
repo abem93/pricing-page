@@ -1,20 +1,22 @@
 import { Component, OnDestroy, OnInit,  } from '@angular/core';
-import { PriceCardComponent } from '../price-card/price-card.component';
-import { SubcriptionPlanDetailsService } from '../services/plan-details.service';
+import { SubcriptionPlanDetailsService } from '../../services/plan-details.service';
 import { CommonModule } from '@angular/common';
-import { CartComponent } from '../cart/cart.component';
-import { ShoppingCartService } from '../services/shopping-cart.service';
+import { ShoppingCartService } from '../../services/shopping-cart.service';
 import { Subscription } from 'rxjs';
-import { SubscriptionPlan } from '../models/subscription-plan.model';
+import { SubscriptionPlan } from '../../models/subscription-plan.model';
+import { RouterOutlet } from '@angular/router';
+import { PlanCardComponent } from '../../components/plan-card/plan-card.component';
+import { PlanComparisonTableComponent } from '../../components/plan-comparison-table/plan-comparison-table.component';
+
 
 @Component({
-  selector: 'app-paid-plans-table',
+  selector: 'app-plans-page',
   standalone: true,
-  imports: [CommonModule,PriceCardComponent, CartComponent],
-  templateUrl: './paid-plans-table.component.html',
-  styleUrl: './paid-plans-table.component.scss'
+  imports: [RouterOutlet, CommonModule, PlanCardComponent, PlanComparisonTableComponent],
+  templateUrl: './plans-page.component.html',
+  styleUrl: './plans-page.component.scss'
 })
-export class PaidPlansTableComponent implements OnInit, OnDestroy {
+export class PlansPageComponent {
   planDetails:SubscriptionPlan[]=[];
   isAnnual:boolean = true;
 

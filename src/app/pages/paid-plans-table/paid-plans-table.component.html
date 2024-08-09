@@ -1,0 +1,38 @@
+<section class="text-gray-600 body-font overflow-hidden bg-transparent">
+    <div class="container px-5 pt-2 md:pb-24 mx-auto">
+        <div class="flex justify-center mb-3">
+            <div class="flex flex-col md:flex-row items-center md:items-center relative">
+                <p
+                    class="lg:w-auto leading-relaxed text-sm text-gray-500 mb-2 md:mb-0 text-center md:text-right md:absolute md:right-full md:mr-4 whitespace-nowrap">
+                    Save up to 16% with annual billing
+                </p>
+                <div class="flex rounded-lg overflow-hidden bg-white xl:w-64 md:w-64 w-full max-w-xs">
+                    <button [ngClass]="{'bg-cloudpano-blue text-white': !isAnnual}"
+                        class="w-1/2 py-2 px-4 focus:outline-none text-center rounded-l-xl"
+                        (click)="togglePricingMode('monthly')">
+                        Monthly
+                    </button>
+                    <button [ngClass]="{'bg-cloudpano-blue text-white': isAnnual}"
+                        class="w-1/2 py-2 px-4 focus:outline-none text-center rounded-r-xl"
+                        (click)="togglePricingMode('annual')">
+                        Annually
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <p class="lg:w-full mx-auto leading-relaxed text-xs text-gray-500">
+                Plans renew automatically on an annual basis. Cancel anytime
+            </p>
+        </div>
+        <div class="flex flex-col lg:flex-row flex-wrap justify-center w-full mt-6">
+            <ng-container *ngFor="let plan of sortedPlanDetails">
+                <ng-container *ngIf="plan.name !== 'Free' && plan.name !=='Enterprise'">
+                    <div class="p-2 w-full lg:w-1/3">
+                        <app-price-card [planType]="plan" [isAnnual]="isAnnual" />
+                    </div>
+                </ng-container>
+            </ng-container>
+        </div>
+    </div>
+</section>

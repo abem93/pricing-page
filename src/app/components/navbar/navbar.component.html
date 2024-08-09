@@ -1,0 +1,56 @@
+<nav class="sticky top-0 z-10  bg-gradient-to-r from-cloudpano-blue to-violet-700">
+    <div class="container py-4 px-4 sm:px-0 mx-auto sm:w-4/5">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="#">
+                    <img width="156" height="40" loading="eager" alt="cloudpano-logo"
+                        src="https://cdn.prod.website-files.com/5fa975f869ea6623c1de7eba/61a5215960309f6e02a9e2e5_CloudPano%20PNG.png">
+                </a>
+            </div>
+    
+            <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+            <div [ngClass]="[isOpen ? 'translate-x-0 opacity-100 ' : 'opacity-0 -translate-x-full']"
+                class="absolute inset-x-0 z-20 w-full lg:px-6 py-2 pb-4 transition-all duration-300 ease-in-out bg-gradient-to-r from-cloudpano-blue to-violet-700 sm:bg-none top-16 lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:justify-between lg:flex-grow">
+                <div class="flex flex-col lg:flex-row lg:items-end lg:pb-2 ml-5"> 
+                    <a class="my-2 text-sm leading-5 lg:text-white transition-colors duration-300 transform hover:text-blue-600 lg:mx-4 lg:my-0"
+                        href="https://www.cloudpano.com/">Home</a>
+                    <a class="my-2 text-sm leading-5 text-white transition-colors duration-300 transform hover:text-blue-600 lg:mx-4 lg:my-0"
+                        href="https://www.cloudpano.com/team">Team</a>
+                    <a class="my-2 text-sm leading-5 text-white transition-colors duration-300 transform hover:text-blue-600 lg:mx-4 lg:my-0"
+                        href="/plans">Plans</a>
+                    <a class="my-2 text-sm leading-5 text-white transition-colors duration-300 transform hover:text-blue-600 lg:mx-4 lg:my-0"
+                        href="https://www.cloudpano.com/getting-started">Solutions</a>
+                    <a class="my-2 text-sm leading-5 text-white transition-colors duration-300 transform hover:text-blue-600 lg:mx-4 lg:my-0"
+                        >Resources</a>
+                </div>
+                <div class="lg:mt-0 py-2 px-3 w-full lg:w-auto flex items-center justify-center">
+                    <button class="w-full sm:w-auto px-6 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-cloudpano-blue rounded-3xl hover:bg-cyan-300 focus:outline-none focus:ring focus:ring-cyan-300 focus:ring-opacity-80">
+                      <a href="https://app.cloudpano.com/signup">
+                        Get Started Free
+                      </a>
+                    </button>
+                  </div>
+            </div>
+    
+            <!-- Mobile menu button -->
+            <div class="flex lg:hidden">
+                <button type="button"
+                    class="text-white hover:text-gray-300 focus:outline-none focus:text-gray-600"
+                    aria-label="toggle menu">
+                    <svg *ngIf="!isOpen" (click)="isOpen=!isOpen" xmlns="http://www.w3.org/2000/svg"
+                        class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16" />
+                    </svg>
+    
+                    <svg *ngIf="isOpen" (click)="isOpen=!isOpen" xmlns="http://www.w3.org/2000/svg"
+                        class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                        stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+

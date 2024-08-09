@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { PaidPlansTableComponent } from './paid-plans-table/paid-plans-table.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { PaidPlansTableComponent } from './pages/paid-plans-table/paid-plans-table.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
@@ -11,5 +11,5 @@ import { NavbarComponent } from './navbar/navbar.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'Pricing-Table';
+  title = 'CloudPano Pricing Plans';
 }

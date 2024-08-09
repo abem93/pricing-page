@@ -1,0 +1,120 @@
+<main class="lg:py-4">
+  <div class="w-full max-w-screen-lg mx-auto px-4 py-8 lg:py-16 bg-white rounded-xl text-gray-600 md:px-4">
+    <div class="max-w-2xl mx-auto space-y-3 text-center">
+      <p class="text-gray-800 text-3xl font-semibold sm:text-4xl">
+        CloudPano can help your Enterprise grow
+      </p>
+      <p class="text-sm">
+        Find out how Cloudpano's secure, scalable 3D modeling platform can deliver simpler management, faster
+        collaboration, and enhanced productivity to your Enterprise. Talk to our reps today!
+      </p>
+    </div>
+    <div class="mt-12 max-w-2xl mx-auto">
+      <form onsubmit="event.preventDefault()" class="space-y-5">
+        <div class="flex flex-col items-center gap-y-5 gap-x-6 [&>*]:w-full sm:flex-row">
+          <div>
+            <label class="font-medium">
+              First name <span class="text-red-600">*</span>
+            </label>
+            <input type="text" required
+              class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg" />
+          </div>
+          <div>
+            <label class="font-medium">
+              Last name <span class="text-red-600">*</span>
+            </label>
+            <input type="text" required
+              class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg" />
+          </div>
+        </div>
+        <div>
+          <label class="font-medium">
+            Business Email <span class="text-red-600">*</span>
+          </label>
+          <input type="email" required
+            class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg" />
+        </div>
+        <div class="flex flex-col items-center gap-y-5 gap-x-6 [&>*]:w-full sm:flex-row">
+          <div>
+            <label class="font-medium">
+              Company <span class="text-red-600">*</span>
+            </label>
+            <input type="text" required
+              class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg" />
+          </div>
+          <div>
+            <label class="font-medium">
+              Job Title <span class="text-red-600">*</span>
+            </label>
+            <input type="text" required
+              class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg" />
+          </div>
+        </div>
+        <div class="flex flex-col items-center gap-y-5 gap-x-6 [&>*]:w-full sm:flex-row">
+          <div>
+            <label class="font-medium">
+              Country <span class="text-red-600">*</span>
+            </label>
+            <input type="text" required
+              class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg" />
+          </div>
+          <div>
+            <label class="font-medium">
+              City <span class="text-red-600">*</span>
+            </label>
+            <input type="text" required
+              class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg" />
+          </div>
+        </div>
+        <div class="flex flex-col items-center gap-y-5 gap-x-6 [&>*]:w-full sm:flex-row">
+          <div>
+            <label class="font-medium">
+              Company Size <span class="text-red-600">*</span>
+            </label>
+            <input type="number" required
+              class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg" />
+          </div>
+          <div>
+            <label class="font-medium">
+              Industry <span class="text-red-600">*</span>
+            </label>
+            <input type="text" required
+              class="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg" />
+          </div>
+        </div>
+        <div>
+          <label class="font-medium">
+            Phone number <span class="text-red-600">*</span>
+          </label>
+          <div class="relative mt-2">
+            <div class="absolute inset-y-0 left-3 my-auto h-6 flex items-center border-r pr-2">
+              <select class="text-sm bg-transparent outline-none rounded-lg h-full">
+                <option>US</option>
+                <option>ES</option>
+                <option>MR</option>
+              </select>
+            </div>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+              placeholder="+1 (555) 000-000" required
+              class="w-full pl-[4.5rem] pr-3 py-2 appearance-none bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg" />
+          </div>
+        </div>
+
+        <div class="flex flex-row justify-between px-2 md:pb-8">
+          <input type="checkbox" class="px-2">
+          <p class="px-2 text-xs">
+            I agree to receive news, product updates, event information, and special offers from Cloudpano. I understand
+            my personal data will be processed in accordance with Cloudpano's Privacy Policy and agree to the Terms of
+            Use.
+          </p>
+        </div>
+        <div class="flex justify-center mt-6">
+          <button
+            class="w-full md:w-1/2 px-4 py-2 text-white font-medium bg-cloudpano-blue hover:bg-indigo-500 active:bg-indigo-600 rounded-lg duration-150">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</main>

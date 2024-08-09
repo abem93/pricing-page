@@ -1,0 +1,31 @@
+<div class="container mx-auto lg:w-3/4">
+    <!-- Navigation buttons -->
+    <div
+        class="flex overflow-x-auto overflow-y-hidden whitespace-nowrap mt-2 px-2 lg:px-0 lg:mt-6 mb-2 lg:ml-8 lg:w-4/5">
+        <button
+            class="inline-flex items-center h-10 px-4 -mb-px text-xs font-semibold text-center text-black bg-transparent hover:border-b-4 sm:text-base whitespace-nowrap focus:outline-none hover:border-gray-400"
+            routerLink="/shop/plans" routerLinkActive="border-b-4 border-cloudpano-blue">
+            Plans
+        </button>
+        <button
+            class="inline-flex items-center h-10 px-4 -mb-px text-xs font-semibold text-center text-black bg-transparent hover:border-b-4 sm:text-base whitespace-nowrap focus:outline-none hover:border-gray-400"
+            routerLink="/shop/cameras" routerLinkActive="border-b-4 border-cloudpano-blue">
+            Cameras
+        </button>
+        <button
+            class="inline-flex items-center h-10 px-4 -mb-px text-xs font-semibold text-center text-black bg-transparent hover:border-b-4 sm:text-base whitespace-nowrap focus:outline-none hover:border-gray-400"
+            routerLink="/shop/capture-services" routerLinkActive="border-b-4 border-cloudpano-blue">
+            Capture Services
+        </button>
+    </div>
+
+
+    <div class="flex flex-col lg:flex-row pb-16 lg:pb-0">
+        <div class="flex-grow lg:w-3/4">
+            <router-outlet></router-outlet>
+        </div>
+        <div class="lg:w-1/4 p-4" [ngClass]="{'lg:mt-20': isPlansPage || isCaptureService, 'lg:mt-0': !isPlansPage, }">
+            <app-cart />
+        </div>
+    </div>
+</div>

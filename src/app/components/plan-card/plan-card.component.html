@@ -1,0 +1,99 @@
+<div class="flex flex-col h-full border lg:border-l lg:border-r border-gray-200 shadow-md sm:shadow-none rounded-2xl sm:rounded-none overflow-hidden">
+  <div class="flex-shrink-0">
+    <div class="p-6 h-32">
+      <h2 class="text-2xl font-bold text-gray-900 truncate">
+        {{planType.name}}
+      </h2>
+      <h4 class="text-xs mt-2 font-bold">{{planType.name=='Free' ? 'Free Forever' : 'Perfect For'}}</h4>
+      <p class="mt-1 text-xs text-gray-700 line-clamp-2">{{planType.target}}</p>
+    </div>
+    
+
+    <div class="p-6 md:h-40 flex flex-col justify-center">
+      <div class="">
+        <div class="mb-2">
+          <span *ngIf="planType.price > 1 && planType.price < 100" class="text-xs">Starting at</span>
+          <div class="flex items-baseline">
+            <span *ngIf="isAnnual && planType.price > 1 && planType.price < 100" class="text-gray-500 line-through text-md mr-2">
+              ${{planType.price * planType.spaces[0]}}
+            </span>
+            <span *ngIf="planType.price < 100" class="text-2xl font-semibold">
+              ${{(isAnnual ? planType.discountPrice * planType.spaces[0] : planType.price * planType.spaces[0]) | number:'1.2-2'}}
+            </span>
+            <span *ngIf="planType.price < 100" class="text-gray-500 ml-1">/mo</span>
+            <span *ngIf="planType.price > 100" class="text-md font-bold">Contact sales for pricing</span>
+          </div>
+        </div>
+        <p *ngIf="isAnnual && planType.price < 1" class="text-sm font-bold">Free to use</p>
+        <p *ngIf="isAnnual && planType.price > 1 && planType.price < 100" class="text-xs font-bold">Billed annually, price based on Active Spaces</p>
+        <p *ngIf="!isAnnual  && planType.price < 100" class="text-xs font-bold">
+          Price based on active spaces
+      </div>
+    </div>
+
+    <div class="p-6 h-24">
+      <div class="flex items-center mb-2">
+        <svg class="text-cloudpano-blue mr-2" width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path d="M12 22L3 17V7L12 2L21 7V17L12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M3 7L12 12M12 12L21 7M12 12V22" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+        </svg>
+        <span class="text-xs">
+          <strong>{{planType.spaces[0] < 300 ? (planType.spaces.length > 1 ? planType.spaces[0] + '-' + planType.spaces[planType.spaces.length-1] : planType.spaces[0]) : 'Custom'}}</strong>
+          Active {{planType.spaces.length < 2 ? 'Space' : 'Spaces'}}
+        </span>
+      </div>
+      <div class="flex items-center">
+        <svg class="text-cloudpano-blue mr-2" width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+        </svg>
+        <span class="text-xs">
+          <strong>{{planType.users < 100 ? planType.users : 'Custom'}}</strong>
+          Users
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="p-6 pt-0">
+    <button *ngIf="planType.name !== 'Free' && planType.name !== 'Enterprise'" class="block w-full rounded-2xl border-2 border-cloudpano-blue bg-cloudpano-blue px-4 py-3 text-center text-base font-semibold text-white hover:bg-transparent hover:text-cloudpano-blue focus:outline-none focus:ring active:text-indigo-500 cursor-pointer"
+      (click)="planSelected(planType)" >
+      Select
+    </button>
+    <a *ngIf="planType.name == 'Free' || planType.name == 'Enterprise'" class="block w-full rounded-2xl border border-cloudpano-blue bg-cloudpano-blue px-4 py-3 text-center text-base font-semibold text-white hover:bg-transparent hover:text-cloudpano-blue focus:outline-none focus:ring active:text-violet-700 cursor-pointer"
+      (click)="planSelected(planType)" >
+      {{planType.name == 'Free' ? 'Start With Free': 'Contact Sales'}}
+    </a>
+  </div>
+
+  <div class="flex-grow flex flex-col">
+    <div class="flex-grow p-6 overflow-y-auto">
+      <p class="font-semibold mb-2">
+        <ng-container *ngIf="planType.name === 'Pro'; else checkProPlus">
+          All Free features, plus:
+        </ng-container>
+        <ng-template #checkProPlus>
+          <ng-container *ngIf="planType.name === 'Pro Plus'; else business">
+            All Pro features, plus:
+          </ng-container>
+        </ng-template>
+        <ng-template #business>
+          <ng-container *ngIf="planType.name === 'Business'; else enterprise">
+            All Pro Plus features, plus:
+          </ng-container>
+        </ng-template>
+        <ng-template #enterprise>
+          <ng-container *ngIf="planType.name === 'Enterprise'; else free">
+            All Business features, plus:
+          </ng-container>
+        </ng-template>
+        <ng-template #free>
+          Top Features:
+        </ng-template>
+      </p>
+      <ul class="list-disc list-inside space-y-1">
+        <li *ngFor="let feature of planType.features" class="text-sm font-light">
+          {{ feature }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
