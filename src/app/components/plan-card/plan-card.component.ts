@@ -52,12 +52,12 @@ export class PlanCardComponent {
     if (planType.name === 'Free') {
       window.open('https://app.cloudpano.com/signup', '_self');
     }else if(planType.name === 'Enterprise'){
-      this.router.navigate(['/contact']);
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      this.router.navigate(['/contact']);
     }else{
       this.shoppingCartService.addSubscriptionToCart(planType, planType.spaces[0], this.isAnnual);
-      this.router.navigate(['/shop/plans']);
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      this.router.navigate(['/shop/plans']);
     }
   }
 
