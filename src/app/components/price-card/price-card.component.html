@@ -21,7 +21,9 @@
         <div class="mb-4">
           <p class="mb-2">Active Spaces</p>
           <div class="relative w-full mb-6">
-            <div class="slider-container relative w-full" #sliderContainer>
+            <div class="slider-container relative w-full"
+            [ngClass]="{'pr-2 lg:pr-0': planType.spaces.length > 5, '': planType.spaces.length <= 5}"
+             #sliderContainer>
               <span class="slider-value absolute border p-1 rounded-lg border-gray-200 shadow-sm">{{displayValue}}</span>
               <input type="range"
                 class="w-full range accent-violet-700 cursor-ew-resize rounded-full bg-gray-200 disabled:cursor-not-allowed"
@@ -32,7 +34,7 @@
                 (input)="onSliderChange($event, sliderContainer)"/>
             </div>
             
-            <div class="relative w-full text-xs text-gray-600 mt-1 overflow-visible" [ngClass]="{'lg:-mr-4': planType.spaces.length > 5}">
+            <div class="relative w-full text-xs text-gray-600 mt-1 overflow-visible">
               <div class="flex justify-between" [ngClass]="{'text-[0.7rem]': planType.spaces.length > 5}">
                 <span 
                   *ngFor="let spaces of planType.spaces; let first = first; let last = last" 
@@ -41,8 +43,6 @@
                     'text-left': first,
                     'text-right': last,
                     'flex-1 px-2 lg:p-0 -ml-2 -mr-0.5 lg:m-0': planType.spaces.length > 5,
-                    'pr-1.5 lg:p-0': first && planType.spaces.length > 5,
-                    '-ml-1.5 lg:m-0': last && planType.spaces.length > 5,
                     'pl-2' : planType.spaces.length < 5,
                     'pl-1' : planType.spaces.length == 5
                   }"
