@@ -21,15 +21,33 @@ export class ShoppingCartService {
   loadCartFromStorage() {
     const storedCart = localStorage.getItem('cart');
     if (storedCart) {
-      this.cart = JSON.parse(storedCart);
-      this.sortCart();
-      this.shoppingCartSubject.next(this.cart);
+      try {
+        const parsedCart = JSON.parse(storedCart);
+        
+        // Check if parsedCart is an array and each item has a 'type' property
+        if (Array.isArray(parsedCart) && parsedCart.every(this.isValidCartItem)) {
+          this.cart = parsedCart;
+          this.sortCart();
+          this.shoppingCartSubject.next(this.cart);
+        } else {
+          // If not valid, clear all local storage
+          localStorage.clear();
+          return;
+        }
+      } catch (error) {
+        // If parsing fails, clear all local storage
+        localStorage.clear();
+        return;
+      }
     }
+  
     const storedIsAnnual = localStorage.getItem('isAnnual');
     if (storedIsAnnual !== null) {
       this.isAnnualSubject.next(JSON.parse(storedIsAnnual));
     }
   }
+  
+  
 
   saveCartToStorage() {
     if (this.cart.length > 0) {
@@ -149,6 +167,9 @@ export class ShoppingCartService {
       (item.type === 'camera' && item.selectedCamera.name === itemName) ||
       (item.type === 'capture-service' && item.selectedService.name === itemName)
     );
+  }
+  private isValidCartItem(item: any): boolean {
+    return typeof item === 'object' && item !== null && 'type' in item;
   }
 
   private sortCart() {
