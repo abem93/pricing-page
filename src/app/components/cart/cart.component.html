@@ -8,7 +8,7 @@
 
 <div class="fixed bottom-0 left-0 right-0 lg:relative lg:bottom-auto lg:left-auto lg:right-auto z-40">
   <div class="w-full relative flex flex-row-reverse px-4 py-2">
-    <button class="bg-violet-700 rounded-full text-white hover:bg-violet-400 duration-300 transition-colors border border-transparent p-3 lg:hidden right-4"
+    <button *ngIf="!isOpen" class="bg-violet-700 rounded-full text-white hover:bg-violet-400 duration-300 transition-colors border border-transparent p-3 lg:hidden right-4"
       [ngClass]="{
         'hidden': !shouldDisplayButton(),
         'bg-cloudpano-blue text-white hover:bg-cloudpano-blue focus:ring-4 focus:outline-none focus:ring-violet-200': shouldDisplayButton()
