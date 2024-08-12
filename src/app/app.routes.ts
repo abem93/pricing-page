@@ -8,6 +8,7 @@ import { CaptureServiceOrderPageComponent } from './pages/capture-service-order-
 import { CameraDetailsComponent } from './components/camera-details/camera-details.component';
 import { CaptureServicesCardComponent } from './components/capture-services-card/capture-services-card.component';
 import { CameraListComponent } from './pages/camera-list/camera-list.component';
+import { CartSummaryComponent } from './pages/cart-summary/cart-summary.component';
 
 
 export const routes: Routes = [
@@ -24,20 +25,24 @@ export const routes: Routes = [
           { path: 'plans', component: PaidPlansTableComponent },
           { path: 'cameras', component: CameraListComponent },
           { path: 'products/:id', component: CameraDetailsComponent },
-          { path: 'capture-services', component: CaptureServicesPageComponent,
+          {
+            path: 'capture-services', component: CaptureServicesPageComponent,
             children: [
               { path: '', component: CaptureServicesCardComponent },
             ]
-          }  
+          }
         ]
       },
       {
-        path: '', component: PricingConfigComponent, 
+        path: '', component: PricingConfigComponent,
         children: [
-        { path: 'capture-services-order', component: CaptureServiceOrderPageComponent },
-      ]
-    },
-      { path: 'contact', component: ContactFormComponent },      
+          { path: 'capture-services-order', component: CaptureServiceOrderPageComponent },
+        ]
+      },
+      {
+         path: 'cart-summary', component: CartSummaryComponent
+      },
+      { path: 'contact', component: ContactFormComponent },
     ],
   },
 ];

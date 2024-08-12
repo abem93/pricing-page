@@ -148,11 +148,11 @@ export class CartComponent implements OnInit, OnDestroy {
     if (currentUrl === routes.paidPlans) {
       this.router.navigate([routes.cameras]);
     } else if (currentUrl === routes.cameras) {
-      this.router.navigate([this.checkout && this.hasCamera ? '/' : routes.captureServices]);
+      this.router.navigate([this.checkout && this.hasCamera ? '/cart-summary' : routes.captureServices]);
     } else if (currentUrl === routes.captureServices) {
       this.router.navigate([routes.captureServiceForm]);
     } else if (currentUrl === routes.captureServiceForm) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/cart-summary']);
     }
   }
 
