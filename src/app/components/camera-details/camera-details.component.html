@@ -1,5 +1,14 @@
 <div class="container px-5 pt-2 md:pt-10 mx-auto">
-  <section class="text-gray-600 body-font bg-white rounded-lg overflow-hidden shadow-lg">
+  <section class="text-gray-600 body-font bg-white rounded-lg overflow-hidden shadow-lg relative">
+    <button 
+      (click)="onClose()"
+      class="absolute top-3 left-3 text-gray-500 hover:text-gray-700 focus:outline-none"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
     <div class="container px-5 py-7 mx-auto">
       <div class="lg:w-full lg:px-9 mx-auto flex flex-wrap items-center">
         <div class="lg:w-1/2 w-full lg:flex lg:items-center">
@@ -19,16 +28,15 @@
               </svg>
               {{feature}}
             </li>
-
           </ul>
-          
           <div class="flex justify-between items-center">
             <div class="flex ">
               <span class="text-gray-900 text-3xl text-center font-medium mx-2">{{camera.price | currency}}</span>
             </div>
             <div>
               <button
-                class="flex ml-auto text-white bg-cloudpano-blue border-0 py-2 px-8 focus:outline-none hover:bg-violet-700 rounded" (click)="addToShoppingCart(camera)">Add To Cart</button>
+                class="flex ml-auto text-white bg-cloudpano-blue border-0 py-2 px-8 focus:outline-none hover:bg-violet-700 rounded" 
+                (click)="addToShoppingCart(camera)">Add To Cart</button>
             </div>
           </div>
         </div>

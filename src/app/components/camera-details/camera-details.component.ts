@@ -49,4 +49,7 @@ export class CameraDetailsComponent implements OnInit {
     this.shoppingCartService.addItemToCart(camera);
     this.router.navigate(['/shop/cameras']);
   }
+  onClose() {
+    this.router.navigate(['/shop/cameras']);
+  }
 }
