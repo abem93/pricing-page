@@ -6,9 +6,9 @@
      }">
 </div>
 
-<div class="fixed bottom-0 left-0 right-0 lg:relative lg:bottom-auto lg:left-auto lg:right-auto z-40">
+<div class="fixed bottom-0 left-0 right-0 w-full lg:relative lg:bottom-auto lg:left-auto lg:right-auto z-40">
   <div class="w-full relative flex flex-row-reverse px-4 py-2">
-    <button *ngIf="!isOpen" class="bg-violet-700 rounded-full text-white hover:bg-violet-400 duration-300 transition-colors border border-transparent p-3 lg:hidden right-4"
+    <button *ngIf="!isOpen" class="bg-violet-700 rounded-full text-white hover:bg-violet-400 duration-300 transition-colors border border-transparent p-3 lg:hidden"
       [ngClass]="{
         'hidden': !shouldDisplayButton(),
         'bg-cloudpano-blue text-white hover:bg-cloudpano-blue focus:ring-4 focus:outline-none focus:ring-violet-200': shouldDisplayButton()
@@ -22,7 +22,7 @@
   </div>
   <!-- Dropdown toggle button -->
   <button (click)="toggleDropdown()"
-    class="relative z-40 max-h-fit flex items-center justify-between w-full p-2 py-4 text-sm text-gray-600 bg-white border border-transparent rounded-t-xl  lg:hidden">
+    class="relative z-40 max-h-fit flex items-center justify-between w-full p-2 py-4 text-sm text-gray-600 bg-white border border-transparent rounded-t-xl lg:hidden">
     <h2 class="text-base font-bold"> <span class="mr-4 ml-2">🛒</span>Order summary ({{getTotalCartItemCount()}})</h2>
     <svg *ngIf="!isOpen" class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M12 8.287L5.99 14.297L7.403 15.712L12 11.112L16.596 15.712L18.01 14.298L12 8.287Z" fill="currentColor">
@@ -35,12 +35,12 @@
   </button>
 
   <!-- Dropdown menu -->
-  <div class="lg:block" [ngClass]="{'hidden': !isOpen}">
+  <div class="lg:block w-full" [ngClass]="{'hidden': !isOpen}">
     <div
-      class="lg:static lg:w-auto lg:py-0 lg:mt-0 lg:bg-transparent lg:right-0 lg:z-0 w-full  lg:rounded-2xl shadow-sm"
+      class="lg:static lg:w-full lg:py-0 lg:mt-0 lg:bg-transparent lg:right-0 lg:z-0 w-full lg:rounded-2xl shadow-sm"
       (clickOutside)="closeDropdown()">
       <!-- Dropdown content -->
-      <div class="w-full lg:max-w-md mx-auto bg-white px-4 py-8 lg:rounded-lg shadow-md contain-content overflow-y-auto lg:overflow-auto"
+      <div class="w-full mx-auto bg-white px-4 py-8 lg:rounded-lg shadow-md contain-content overflow-y-auto lg:overflow-auto"
       [ngClass]="{'': isOpen}"
         style="max-height: calc(100vh - 8rem);">
         <h2 class="text-base font-bold mb-4 hidden md:block">Order summary ({{getTotalCartItemCount()}})</h2>
@@ -92,7 +92,7 @@
               </ng-container>
             </div>
           </ng-container>
-          <hr class="mb-1 -ml-1">
+          <hr class="mb-1 -mx-4">
           <div class="flex justify-between items-center mb-3">
             <h3 class="text-lg font-semibold">Today's total</h3>
             <span class="mr-4">{{totalBalance | currency}}</span>
