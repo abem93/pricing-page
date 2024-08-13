@@ -19,8 +19,8 @@ export class CaptureServiceOrderPageComponent {
 
   constructor(private formBuilder: FormBuilder, private shoppingCartService: ShoppingCartService) {
     this.captureForm = this.formBuilder.group({
-      numberOfLevels: ['', [Validators.required, Validators.min(0)]],
-      squareFeet: ['', [Validators.required, Validators.min(0)]],
+      numberOfLevels: ['', [Validators.required, Validators.min(0), Validators.pattern('^[0-9]*$')]],
+      squareFeet: ['', [Validators.required, Validators.min(0), Validators.pattern('^[0-9]*$')]],
       zipCode: ['', [
         Validators.required,
         Validators.pattern('^[0-9]{5}(-[0-9]{4})?$'),
