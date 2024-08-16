@@ -111,8 +111,8 @@
         </div>
         <button [ngClass]="{
     'bg-gray-200 text-gray-500': shoppingCart.length < 1 || (getCurrentUrl() === '/shop/cameras' && !hasCamera),
-    'bg-violet-700 text-white hover:bg-violet-500 focus:ring-4 focus:outline-none focus:ring-violet-200': shoppingCart.length > 0 && (getCurrentUrl() !== '/shop/cameras' || hasCamera)
-  }" class="w-full py-2 rounded-2xl mb-4 font-semibold" (click)="continueCheckout()"
+    'text-white bg-gradient-to-r from-violet-700 via-middle-blue via-50% to-cloudpano-aqua hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-violet-200': shoppingCart.length > 0 && (getCurrentUrl() !== '/shop/cameras' || hasCamera)
+  }" class="w-full py-2 rounded-lg mb-4 font-semibold" (click)="continueCheckout()"
           [disabled]="(getCurrentUrl() === '/shop/cameras' && !hasCamera) || shoppingCart.length < 1">
           <span *ngIf="checkout" class="mr-2">🔒</span>{{checkout ? 'Secure Checkout': 'Next'}}
         </button>

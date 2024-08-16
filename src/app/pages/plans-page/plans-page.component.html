@@ -11,12 +11,12 @@
           Save up to 16% with annual billing
         </p>
         <div class="flex rounded-lg overflow-hidden bg-white xl:w-64 md:w-64 w-full max-w-xs">
-          <button [ngClass]="[isAnnual ? 'bg-cloudpano-blue text-white': 'bg-gray-100' ]"
+          <button [ngClass]="[isAnnual ? 'bg-gradient-to-r  from-cyan-600  to-cloudpano-aqua to-45% text-white': 'bg-gray-100' ]"
             class="w-1/2 py-2 px-4 focus:outline-none text-centerrounded-l-xl"
             (click)="togglePricingMode('annual')">
             Annually
           </button>
-          <button [ngClass]="[!isAnnual ? 'bg-cloudpano-blue text-white': 'bg-gray-100']"
+          <button [ngClass]="[!isAnnual ? 'bg-gradient-to-l  from-cyan-600  to-cloudpano-aqua to-45%  text-white': 'bg-gray-100']"
             class="w-1/2 py-2 px-4 focus:outline-none text-center rounded-r-xl"
             (click)="togglePricingMode('monthly')">
             Monthly
