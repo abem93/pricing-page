@@ -62,7 +62,7 @@
       Select
     </button>
     <button *ngIf="planType.name == 'Free' || planType.name == 'Enterprise'"
-      class="block w-full rounded-2xl border border-cloudpano-blue bg-cloudpano-blue px-4 py-3 text-center text-base font-semibold text-white hover:bg-transparent hover:text-cloudpano-blue focus:outline-none focus:ring active:text-violet-700 cursor-pointer"
+      class="block w-full rounded-2xl border border-cloudpano-blue bg-cloudpano-blue px-4 py-3 text-center text-base font-semibold text-white hover:bg-transparent hover:text-cloudpano-blue focus:outline-none focus:ring active:text-cloudpano-blue-green cursor-pointer"
       (click)="planSelected(planType)">
       {{planType.name == 'Free' ? 'Start With Free': 'Contact Sales'}}
     </button>

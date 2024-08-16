@@ -1,261 +1,388 @@
-<div x-data="pricingComponent()">
-    <section class="py-14 text-gray-600">
-      <div
-        class="relative max-w-xl mx-auto space-y-3 px-4 sm:text-center md:px-0"
-      >
-        <h3 class="text-indigo-600 font-semibold">Pricing</h3>
-        <p class="text-gray-800 text-3xl font-semibold sm:text-4xl">
-          Compare our plans and find yours
+<section class="text-gray-700 body-font overflow-hidden lg:border border-gray-200 rounded-lg lg:mb-20 mx-5">
+  <div class="container  mx-auto flex flex-wrap">
+    <div class="lg:w-1/4 mt-48 hidden lg:block">
+      <div class="mt-px  overflow-hidden">
+        <p class="bg-gray-100 text-gray-900 h-12 text-center px-4 flex items-center justify-start -mt-px">Fingerstache
+          disrupt</p>
+        <p class="text-gray-900 h-12 text-center px-4 flex items-center justify-start">Franzen hashtag</p>
+        <p class="bg-gray-100 text-gray-900 h-12 text-center px-4 flex items-center justify-start">Tilde art party</p>
+        <p class="text-gray-900 h-12 text-center px-4 flex items-center justify-start">Banh mi cornhole</p>
+        <p class="bg-gray-100 text-gray-900 h-12 text-center px-4 flex items-center justify-start">Waistcoat squid
+          hexagon</p>
+        <p class="text-gray-900 h-12 text-center px-4 flex items-center justify-start">Pinterest occupy authentic</p>
+        <p class="bg-gray-100 text-gray-900 h-12 text-center px-4 flex items-center justify-start">Brooklyn helvetica
         </p>
-        <div class="max-w-xl">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-            efficitur consequat nunc.
-          </p>
-        </div>
+        <p class="text-gray-900 h-12 text-center px-4 flex items-center justify-start">Long Feature Two</p>
+        <p class="bg-gray-100 text-gray-900 h-12 text-center px-4 flex items-center justify-start">Feature One</p>
       </div>
-      <div class="mt-16">
-        <div class="sticky top-0 py-6 border-b bg-white">
-          <div class="max-w-screen-xl mx-auto">
-            <ul class="ml-auto flex gap-x-6 px-4 md:px-8 lg:max-w-3xl">
-              <template x-for="plan in plans" :key="plan.name">
-                <li
-                  :class="{'space-y-4 w-full': true, 'hidden lg:block': selectedPlan !== plan.name}"
-                >
-                  <div class="flex items-center justify-between">
-                    <span
-                      class="text-gray-700 font-medium"
-                      x-text="plan.name"
-                    ></span>
-                    <div
-                      class="relative text-gray-500 hover:text-gray-800 lg:hidden"
-                    >
-                      <!-- Dropdown for small devices -->
-                      <svg
-                        class="w-5 h-5 absolute right-0 inset-y-0 my-auto"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      <select
-                        class="bg-transparent appearance-none outline-none px-8 cursor-pointer"
-                        x-model="selectedPlan"
-                      >
-                        <option disabled>Switch plan</option>
-                        <template x-for="option in plans" :key="option.name">
-                          <option
-                            x-bind:value="option.name"
-                            x-text="option.name"
-                          ></option>
-                        </template>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="text-gray-800 text-3xl font-semibold">
-                    <span x-text="`$${plan.price}`"></span>
-                    <span class="text-xl text-gray-600 font-normal">/mo</span>
-                  </div>
-                  <p class="text-sm" x-text="plan.desc"></p>
-                  <button
-                    class="px-3 py-3 rounded-lg w-full font-semibold text-sm duration-150 text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700"
-                  >
-                    Get Started
-                  </button>
-                </li>
-              </template>
-            </ul>
-          </div>
+    </div>
+    <div class="flex lg:w-3/4 w-full flex-wrap  ">
+      <div
+        class="lg:w-1/5 lg:mt-px w-full mb-10 lg:mb-0 border border-gray-200 shadow-md rounded-2xl lg:border-none lg:rounded-none">
+        <div class="px-2 text-center h-48 flex flex-col items-center justify-end">
+          <h3 class="tracking-widest">Start</h3>
+          <h2 class="text-5xl text-gray-900 font-medium leading-none mb-4 mt-2">Free</h2>
+          <span class="text-sm text-gray-600">Next 3 months</span>
+          <button
+            class="mx-6 overflow-auto flex items-center justify-center my-2 text-white bg-cloudpano-blue border-0 py-4 px-0 w-full lg:w-3/4 focus:outline-none hover:bg-middle-blue rounded-2xl">Button
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              class="w-4 h-4 ml-4" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
         </div>
-        <div
-          class="max-w-screen-xl mx-auto mt-10 space-y-4 px-4 overflow-auto md:overflow-visible md:px-8"
-        >
-          <template x-for="table in tables" :key="table.label">
-            <table class="w-full table-auto text-sm text-left">
-              <thead class="text-gray-600 font-medium border-b">
-                <tr>
-                  <th class="z-20 top-12 py-6 lg:sticky">
-                    <div class="flex items-center gap-x-3">
-                      <div
-                        class="w-12 h-12 text-indigo-600 rounded-full border flex items-center justify-center"
-                        x-html="table.label_icon"
-                      ></div>
-                      <h4
-                        class="text-gray-800 text-xl font-medium"
-                        x-text="table.label"
-                      ></h4>
-                    </div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody class="text-gray-600 divide-y">
-                <template x-for="(item, idx) in table.items" :key="idx">
-                  <tr>
-                    <td
-                      class="px-6 py-4 whitespace-nowrap"
-                      x-text="item.name"
-                    ></td>
-                    <td
-                      class="text-center w-[250px] px-6 py-4 whitespace-nowrap hidden lg:table-cell"
-                      x-html="item.basic"
-                    ></td>
-                    <td
-                      class="text-center w-[250px] px-6 py-4 whitespace-nowrap hidden lg:table-cell"
-                      x-html="item.business"
-                    ></td>
-                    <td
-                      class="text-center w-[250px] px-6 py-4 whitespace-nowrap hidden lg:table-cell"
-                      x-html="item.enterprise"
-                    ></td>
-                    <td
-                      class="text-center w-[250px] px-6 py-4 whitespace-nowrap lg:hidden"
-                      x-html="item[selectedPlan.toLowerCase()]"
-                    ></td>
-                  </tr>
-                </template>
-              </tbody>
-            </table>
-          </template>
-        </div>
+        <p
+          class="bg-gray-100 text-gray-600 h-12 text-center px-2 flex items-center -mt-px justify-center border-t border-gray-300">
+          Schlitz single-origin</p>
+        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+          <span
+            class="w-5 h-5 inline-flex items-center justify-center bg-green-500 text-white rounded-full flex-shrink-0">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+              class="w-3 h-3" viewBox="0 0 24 24">
+              <path d="M20 6L9 17l-5-5"></path>
+            </svg>
+          </span>
+        </p>
+        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+          <span
+            class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+              class="w-3 h-3" viewBox="0 0 24 24">
+              <path d="M20 6L9 17l-5-5"></path>
+            </svg>
+          </span>
+        </p>
+        <p class="h-12 text-gray-600 px-6 text-center leading-relaxed flex items-center justify-center">Feature</p>
+        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+          <span
+            class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+              class="w-3 h-3" viewBox="0 0 24 24">
+              <path d="M20 6L9 17l-5-5"></path>
+            </svg>
+          </span>
+        </p>
+        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+            class="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </p>
+        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+            class="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </p>
+        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+            class="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </p>
+        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+            class="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </p>
       </div>
-    </section>
+
+      <div
+        class="lg:w-1/5 w-full mb-10 lg:mt-px lg:border-none border border-gray-200 shadow-md rounded-2xl  lg:rounded-none">
+        <div class="px-2 text-center h-48 flex flex-col items-center justify-end">
+          <h3 class="tracking-widest">Pro</h3>
+          <h2 class="text-5xl text-gray-900 font-medium flex items-center justify-center leading-none mb-4 mt-2">$54
+            <span class="text-gray-600 text-base ml-1">/mo</span>
+          </h2>
+          <span class="text-sm text-gray-600">Charging $648 per year</span>
+          <button
+            class="flex items-center justify-center my-2 text-white bg-cloudpano-blue border-0 py-2 px-4 w-full lg:w-3/4 focus:outline-none hover:bg-middle-blue rounded-2xl">Button
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              class="w-4 h-4 ml-4" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+        <p
+          class="bg-gray-100 text-gray-600 h-12 text-center px-2 flex items-center -mt-px justify-center border-t border-gray-300">
+          Schlitz single-origin</p>
+        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+          <span
+            class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+              class="w-3 h-3" viewBox="0 0 24 24">
+              <path d="M20 6L9 17l-5-5"></path>
+            </svg>
+          </span>
+        </p>
+        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+          <span
+            class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+              class="w-3 h-3" viewBox="0 0 24 24">
+              <path d="M20 6L9 17l-5-5"></path>
+            </svg>
+          </span>
+        </p>
+        <p class="h-12 text-gray-600 text-center leading-relaxed flex items-center justify-center">Feature</p>
+        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+          <span
+            class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+              class="w-3 h-3" viewBox="0 0 24 24">
+              <path d="M20 6L9 17l-5-5"></path>
+            </svg>
+          </span>
+        </p>
+        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+            class="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </p>
+        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+            class="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </p>
+        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+            class="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </p>
+        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+            class="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </p>
+      </div>
+
+      <div class="lg:w-1/5 lg:-mt-px w-full mb-10 lg:mb-0 border  shadow-md rounded-2xl border-violet-700 relative">
+        <span
+          class="bg-violet-700 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl rounded-tr-2xl">POPULAR</span>
+        <div class="px-2 text-center h-48 flex flex-col items-center justify-end">
+          <h3 class="tracking-widest">Pro Plus</h3>
+          <h2 class="text-5xl text-gray-900 font-medium flex items-center justify-center leading-none mb-4 mt-2">$38
+            <span class="text-gray-600 text-base ml-1">/mo</span>
+          </h2>
+          <span class="text-sm text-gray-600">Charging $456 per year</span>
+          <button
+            class="flex items-center justify-center my-2 text-white bg-cloudpano-blue border-0 py-2 px-4 w-full lg:w-3/4 focus:outline-none hover:bg-middle-blue rounded-2xl">Button
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              class="w-4 h-4 ml-4" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+        <p
+          class="bg-gray-100 text-gray-600 h-12 text-center px-2 flex items-center -mt-px justify-center border-t border-gray-300">
+          Schlitz single-origin</p>
+        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+          <span
+            class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+              class="w-3 h-3" viewBox="0 0 24 24">
+              <path d="M20 6L9 17l-5-5"></path>
+            </svg>
+          </span>
+        </p>
+        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+          <span
+            class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+              class="w-3 h-3" viewBox="0 0 24 24">
+              <path d="M20 6L9 17l-5-5"></path>
+            </svg>
+          </span>
+        </p>
+        <p class="h-12 text-gray-600 text-center leading-relaxed flex items-center justify-center">Feature</p>
+        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+          <span
+            class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+              class="w-3 h-3" viewBox="0 0 24 24">
+              <path d="M20 6L9 17l-5-5"></path>
+            </svg>
+          </span>
+        </p>
+        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+          <span
+            class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+              class="w-3 h-3" viewBox="0 0 24 24">
+              <path d="M20 6L9 17l-5-5"></path>
+            </svg>
+          </span>
+        </p>
+        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+            class="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </p>
+        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+            class="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </p>
+        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+            class="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </p>
+      </div>
+
+      <div
+        class="lg:w-1/5 w-full mb-10 lg:mt-px border border-gray-200 shadow-md rounded-2xl lg:border-none lg:rounded-none">
+        <div class="px-2 text-center h-48 flex flex-col items-center justify-end">
+          <h3 class="tracking-widest">Business</h3>
+          <h2 class="text-5xl text-gray-900 font-medium flex items-center justify-center leading-none mb-4 mt-2">$54
+            <span class="text-gray-600 text-base ml-1">/mo</span>
+          </h2>
+          <span class="text-sm text-gray-600">Charging $648 per year</span>
+          <button
+            class="flex items-center justify-center my-2 text-white bg-cloudpano-blue border-0 py-2 px-4 w-full lg:w-3/4 focus:outline-none hover:bg-middle-blue rounded-2xl">Button
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              class="w-4 h-4 ml-4" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+        <p
+          class="bg-gray-100 text-gray-600 h-12 text-center px-2 flex items-center -mt-px justify-center border-t border-gray-300">
+          Schlitz single-origin</p>
+        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+          <span
+            class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+              class="w-3 h-3" viewBox="0 0 24 24">
+              <path d="M20 6L9 17l-5-5"></path>
+            </svg>
+          </span>
+        </p>
+        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+          <span
+            class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+              class="w-3 h-3" viewBox="0 0 24 24">
+              <path d="M20 6L9 17l-5-5"></path>
+            </svg>
+          </span>
+        </p>
+        <p class="h-12 text-gray-600 text-center leading-relaxed flex items-center justify-center">Feature</p>
+        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+          <span
+            class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+              class="w-3 h-3" viewBox="0 0 24 24">
+              <path d="M20 6L9 17l-5-5"></path>
+            </svg>
+          </span>
+        </p>
+        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+            class="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </p>
+        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+            class="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </p>
+        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+            class="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </p>
+        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+            class="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </p>
+      </div>
+
+      <div
+        class="lg:w-1/5 w-full mb-10 lg:mt-px border border-gray-200 shadow-md rounded-2xl lg:border-none lg:rounded-none">
+        <div class="px-2 text-center h-48 flex flex-col items-center justify-end">
+          <h3 class="tracking-widest">Enterprise</h3>
+          <h2 class="text-5xl text-gray-900 font-medium flex items-center justify-center leading-none mb-4 mt-2">$54
+            <span class="text-gray-600 text-base ml-1">/mo</span>
+          </h2>
+          <span class="text-sm text-gray-600">Charging $648 per year</span>
+          <button
+            class="flex items-center justify-center my-2 text-white bg-cloudpano-blue border-0 py-2 px-4 w-full lg:w-3/4 focus:outline-none hover:bg-middle-blue rounded-2xl">Button
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              class="w-4 h-4 ml-4" viewBox="0 0 24 24">
+              <path d="M5 12h14M12 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+        <p
+          class="bg-gray-100 text-gray-600 h-12 text-center px-2 flex items-center -mt-px justify-center border-t border-gray-300">
+          Schlitz single-origin</p>
+        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+          <span
+            class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+              class="w-3 h-3" viewBox="0 0 24 24">
+              <path d="M20 6L9 17l-5-5"></path>
+            </svg>
+          </span>
+        </p>
+        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+          <span
+            class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+              class="w-3 h-3" viewBox="0 0 24 24">
+              <path d="M20 6L9 17l-5-5"></path>
+            </svg>
+          </span>
+        </p>
+        <p class="h-12 text-gray-600 text-center leading-relaxed flex items-center justify-center">Feature</p>
+        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+          <span
+            class="w-5 h-5 inline-flex items-center justify-center bg-gray-500 text-white rounded-full flex-shrink-0">
+            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+              class="w-3 h-3" viewBox="0 0 24 24">
+              <path d="M20 6L9 17l-5-5"></path>
+            </svg>
+          </span>
+        </p>
+        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+            class="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </p>
+        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+            class="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </p>
+        <p class="text-gray-600 text-center h-12 flex items-center justify-center">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+            class="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </p>
+        <p class="bg-gray-100 text-gray-600 text-center h-12 flex items-center justify-center">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"
+            class="w-5 h-5 text-gray-500" viewBox="0 0 24 24">
+            <path d="M18 6L6 18M6 6l12 12"></path>
+          </svg>
+        </p>
+      </div>
+    </div>
   </div>
-  
-  <script>
-    function pricingComponent() {
-      return {
-        checkIcon: "<div class='text-indigo-600 text-xl'>+</div>",
-        "<div class='text-xl'>-</div>": "<div class='text-xl'>-</div>",
-        plans: [
-          {
-            name: "Basic",
-            desc: "Lorem ipsum dolor sit amet torrel, consectet adipiscing elit.",
-            price: "15",
-          },
-          {
-            name: "Business",
-            desc: "Lorem ipsum dolor sit amet torrel, consectet adipiscing elit.",
-            price: "20",
-          },
-          {
-            name: "Enterprise",
-            desc: "Lorem ipsum dolor sit amet torrel, consectet adipiscing elit.",
-            price: "50",
-          },
-        ],
-        tables: [
-          {
-            label: "Features",
-            label_icon:
-              '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>',
-            items: [
-              {
-                name: "Aliquam finibus",
-                basic: "<div class='text-indigo-600 text-xl'>+</div>",
-                business: "<div class='text-indigo-600 text-xl'>+</div>",
-                enterprise: "<div class='text-indigo-600 text-xl'>+</div>",
-              },
-              {
-                name: "Vestibulum tristique",
-                basic: "<div class='text-xl'>-</div>",
-                business: "<div class='text-indigo-600 text-xl'>+</div>",
-                enterprise: "<div class='text-indigo-600 text-xl'>+</div>",
-              },
-              {
-                name: "Aliquam finibus",
-                basic: "<div class='text-xl'>-</div>",
-                business: "<div class='text-xl'>-</div>",
-                enterprise: "<div class='text-indigo-600 text-xl'>+</div>",
-              },
-              {
-                name: "Praesent aliquet",
-                basic: "<div class='text-xl'>-</div>",
-                business: "150GB",
-                enterprise: "Unlimited",
-              },
-            ],
-          },
-          {
-            label: "Analytics",
-            label_icon:
-              '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg>',
-            items: [
-              {
-                name: "Aliquam finibus",
-                basic: "<div class='text-indigo-600 text-xl'>+</div>",
-                business: "<div class='text-indigo-600 text-xl'>+</div>",
-                enterprise: "<div class='text-indigo-600 text-xl'>+</div>",
-              },
-              {
-                name: "Vestibulum tristique",
-                basic: "<div class='text-xl'>-</div>",
-                business: "<div class='text-indigo-600 text-xl'>+</div>",
-                enterprise: "<div class='text-indigo-600 text-xl'>+</div>",
-              },
-              {
-                name: "Aliquam finibus",
-                basic: "<div class='text-xl'>-</div>",
-                business: "<div class='text-xl'>-</div>",
-                enterprise: "<div class='text-indigo-600 text-xl'>+</div>",
-              },
-              {
-                name: "Lorinto dinor",
-                basic: "30",
-                business: "60",
-                enterprise: "Custom",
-              },
-              {
-                name: "Praesent aliquet",
-                basic: "Limited",
-                business: "Limited",
-                enterprise: "<div class='text-indigo-600 text-xl'>+</div>",
-              },
-              {
-                name: "Praesent aliquet",
-                basic: "<div class='text-xl'>-</div>",
-                business: "150GB",
-                enterprise: "Unlimited",
-              },
-            ],
-          },
-          {
-            label: "Support",
-            label_icon:
-              '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" class="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" /></svg>',
-            items: [
-              {
-                name: "Aliquam finibus",
-                basic: "<div class='text-indigo-600 text-xl'>+</div>",
-                business: "<div class='text-indigo-600 text-xl'>+</div>",
-                enterprise: "<div class='text-indigo-600 text-xl'>+</div>",
-              },
-              {
-                name: "Vestibulum tristique",
-                basic: "<div class='text-xl'>-</div>",
-                business: "<div class='text-indigo-600 text-xl'>+</div>",
-                enterprise: "<div class='text-indigo-600 text-xl'>+</div>",
-              },
-              {
-                name: "Aliquam finibus",
-                basic: "<div class='text-xl'>-</div>",
-                business: "<div class='text-xl'>-</div>",
-                enterprise: "<div class='text-indigo-600 text-xl'>+</div>",
-              },
-              {
-                name: "Praesent aliquet",
-                basic: "<div class='text-xl'>-</div>",
-                business: "150GB",
-                enterprise: "Unlimited",
-              },
-            ],
-          },
-        ],
-        selectedPlan: "Basic",
-      };
-    }
-  </script>
+</section>

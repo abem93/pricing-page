@@ -6,11 +6,12 @@ import { Subscription } from 'rxjs';
 import { SubscriptionPlan } from '../../models/subscription-plan.model';
 import { PriceCardComponent } from '../../components/price-card/price-card.component';
 import { CartComponent } from '../../components/cart/cart.component';
+import { FaqComponent } from '../../components/faq/faq.component';
 
 @Component({
   selector: 'app-paid-plans-table',
   standalone: true,
-  imports: [CommonModule, PriceCardComponent, CartComponent],
+  imports: [CommonModule, PriceCardComponent, CartComponent, FaqComponent],
   templateUrl: './paid-plans-table.component.html',
   styleUrl: './paid-plans-table.component.scss'
 })

@@ -34,20 +34,20 @@ export class CaptureServiceOrderPageComponent {
   onZipCodeInput(event: Event) {
     const input = event.target as HTMLInputElement;
     // Remove all non-numbers
-    let value = input.value.replace(/\D/g, ''); 
-    
+    let value = input.value.replace(/\D/g, '');
+
     if (value.length > 5) {
       value = value.slice(0, 5) + '-' + value.slice(5);
     }
 
     value = value.slice(0, 10);
     input.value = value;
-    this.captureForm.get('zipCode')?.setValue(value, {emitEvent: false});
+    this.captureForm.get('zipCode')?.setValue(value, { emitEvent: false });
   }
 
 
-  addCaptureServiceToCart(){
-    const service: CaptureService ={
+  addCaptureServiceToCart() {
+    const service: CaptureService = {
       name: 'Capture Service',
       price: 238,
       levels: this.captureForm.value.numberOfLevels,
@@ -55,9 +55,21 @@ export class CaptureServiceOrderPageComponent {
       zipCode: +this.captureForm.value.zipCode
     }
 
-    if(this.captureForm){
-       this.shoppingCartService.addServiceToCart(service)
+    if (this.captureForm) {
+      this.shoppingCartService.addServiceToCart(service)
     }
   }
 
+  onlyNumbers(event: Event, controlName: string) {
+    const input = event.target as HTMLInputElement;
+    const sanitizedValue = input.value.replace(/[^0-9.]/g, '');
+
+    input.value = sanitizedValue;
+
+    // Update the form control value
+    const control = this.captureForm.get(controlName);
+    if (control) {
+      control.setValue(sanitizedValue);
+    }
+  }
 }
