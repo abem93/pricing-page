@@ -19,4 +19,9 @@ export class PlanComparisonTableComponent {
     spaces: [],
     features: []
   }
+
+  planSelected(plantype: string){
+
+  }
 }
+
