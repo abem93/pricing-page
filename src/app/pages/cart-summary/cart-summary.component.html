@@ -1,7 +1,92 @@
-<div class="container mx-auto w-full lg:w-1/2">
-  <div class="flex flex-col pt-10 lg:flex-row pb-16 lg:pb-0">
-      <div class="flex-grow lg:w-f">
-          <app-cart/>
+<div class="w-1/2 mx-auto my-16 bg-white px-4 py-8 lg:rounded-lg shadow-md contain-content overflow-y-auto lg:overflow-auto"
+  [ngClass]="{'': isOpen}" style="max-height: calc(100vh - 8rem);">
+  <h2 class="text-base font-bold mb-4 hidden md:block">Order summary ({{getTotalCartItemCount()}})</h2>
+  <div *ngIf="shoppingCart.length > 0">
+    <ng-container *ngFor="let item of shoppingCart">
+      <div class="mb-4">
+        <div class="flex justify-between items-center mb-1">
+          <ng-container *ngIf="item.type === 'subscription'; else checkCamera">
+            <span>{{ item.selectedPlan.name }}</span>
+          </ng-container>
+
+          <ng-template #checkCamera>
+            <ng-container *ngIf="item.type === 'camera'; else checkService">
+              <span>{{ item.selectedCamera.name }}</span>
+            </ng-container>
+          </ng-template>
+
+          <ng-template #checkService>
+            <ng-container *ngIf="item.type === 'capture-service'; else unknown">
+              <span>{{ item.selectedService.name }}</span>
+            </ng-container>
+          </ng-template>
+
+          <ng-template #unknown>
+            <span>Unknown item type</span>
+          </ng-template>
+          <div class="flex items-center space-x-2">
+            <span class="">
+              {{item.type === 'subscription' ?
+              (item.annual ? (getPrice(item) | currency) + '/yr' : (getPrice(item) | currency) + '/mo') :
+              (getPrice(item) | currency)}}
+            </span>
+            <span class="font-semibold cursor-pointer" (click)="removeFromCart(item)">×</span>
+          </div>
+        </div>
+        <ng-container *ngIf="item.type === 'subscription'">
+          <p class="text-xs text-gray-600 font-semibold">{{item.spaces}} Spaces, {{item.selectedPlan.users}} users
+          </p>
+          <p class="text-xs text-gray-600">Renews automatically on an {{item.annual ? 'annual' : 'monthly'}} basis
+          </p>
+        </ng-container>
+        <ng-container *ngIf="item.type === 'camera'">
+          <p class="text-xs text-gray-600 font-semibold">{{item.selectedCamera.reason}}</p>
+          <p class="text-xs text-gray-600">Qty: {{item.quantity}}
+        </ng-container>
+        <ng-container *ngIf="item.type === 'capture-service'">
+          <p class="text-xs text-gray-600 font-semibold">Levels: {{item.selectedService.levels}}</p>
+          <p class="text-xs text-gray-600">Sq.Ft: {{item.selectedService.sqFeet}}
+        </ng-container>
       </div>
+    </ng-container>
+    <hr class="mb-1 -mx-4">
+    <div class="flex justify-between items-center mb-3">
+      <h3 class="text-lg font-semibold">Today's total</h3>
+      <span class="mr-4">{{totalBalance | currency}}</span>
+    </div>
+    <div *ngIf="productTotal > 0" class="flex justify-between items-center mb-1">
+      <span class="text-sm">Product Total</span>
+      <span class="mr-4">{{productTotal | currency}}</span>
+    </div>
+    <div *ngIf="subscriptionTotal > 0" class="flex justify-between items-center mb-4">
+      <span class="text-sm">Subscription Total</span>
+      <span class="mr-4">{{subscriptionTotal | currency}}</span>
+    </div>
+  </div>
+  <div *ngIf="shoppingCart.length < 1" class="w-full flex justify-center items-center mt-8 mb-6">
+    <p>Cart is Empty</p>
+  </div>
+  <div class="flex justify-center">
+
+  </div>
+  <div *ngIf="shoppingCart.length > 0" class="flex items-center text-blue-600 mb-6 cursor-pointer">
+    <span class="mr-2">+</span>
+    <span>Add a promo code</span>
+  </div>
+  <div class="mb-6">
+    <h4 class="font-semibold mb-2">Accepted payment methods</h4>
+    <div class="flex flex-wrap gap-2">
+      <img src="https://checkoutshopper-live.adyen.com/checkoutshopper/images/logos/visa.svg" alt="visa">
+      <img src="https://checkoutshopper-live.adyen.com/checkoutshopper/images/logos/mc.svg" alt="mastercard">
+      <img src="https://checkoutshopper-live.adyen.com/checkoutshopper/images/logos/applepay.svg" alt="apple pay">
+      <img src="https://checkoutshopper-live.adyen.com/checkoutshopper/images/logos/googlepay.svg" alt="google pay">
+    </div>
+  </div>
+  <div>
+    <h4 class="font-semibold mb-2">Helpful links</h4>
+    <ul class="text-blue-600">
+      <li class="mb-1 cursor-pointer"><a>Shipping information</a></li>
+      <li class="cursor-pointer"><a>Returns policy</a></li>
+    </ul>
   </div>
 </div>
