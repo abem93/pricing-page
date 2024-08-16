@@ -4,8 +4,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'cloudpano-blue': 'rgb(89, 193, 201)',
-        'background-blue': 'rgb(61,126,230)',
+        'cloudpano-blue-green': 'rgb(89, 193, 201)',
+        'cloudpano-green': '#47ce90',
+        'cloudpano-blue': '#4c93ec',
         'middle-blue': 'rgb(18,134,251)'
       },
     },
