@@ -9,7 +9,7 @@ export class SubcriptionPlanDetailsService {
 
   private subscriptionPlans = [
     {
-      name: 'Free', target: 'Easiest way to try CloudPano. No credit card needed.', price: 0, discountPrice: 0, users: 2, spaces: [1], features: [
+      name: 'Free', target: 'Easiest way to try CloudPano. No credit card needed.', price: 0, discountPrice: 0, users: 1, spaces: [1], features: [
         "Create immersive 3D experiences",
         "Capture on mobile, share on CloudPano",
         "Take accurate measurements, label objects and rooms",
@@ -76,12 +76,883 @@ export class SubcriptionPlanDetailsService {
     { name: 'Mobile VR Rotator Kit', price: 119.99, url: 'https://view.cloudpanore.com/hosted/images/a1/0cbbcea80b4c0786a594d4b74380e6/vr-kit-picture-cloudpano.png', description: 'Use Auto Rotator For Crisp 360º Photos', features: ['Take 360º Photos Directly From Your Phone', 'Simply attach the kit to your tripod, position the included lens to your phone and let the Kit do its magic! ', 'Image quality depends on the quality of your mobile phone, but if you have a good phone that is at most 2 years old, the quality will astound you, as it did us! ']}
   ]
 
+  private planComparisonTableDetails = [
+    {
+      category: "AT A GLANCE",
+      feature: "Publish your tour so others can see it",
+      freePlan: false,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "AT A GLANCE",
+      feature: "# of published tours",
+      freePlan: false,
+      proPlan: "5-10",
+      proPlusPlan: "20-150",
+      businessPlan: "100-300",
+      enterprisePlan: "Custom"
+    },
+    {
+      category: "THE BASICS",
+      feature: "Unlimited Unpublished tours",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "THE BASICS",
+      feature: "Create Projects of any type",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "THE BASICS",
+      feature: "Unlimited Scenes Per Tour",
+      freePlan: false,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "THE BASICS",
+      feature: "8K Resolution",
+      freePlan: false,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "THE BASICS",
+      feature: "CloudFlare Content Delivery Network (CDN)",
+      freePlan: false,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Embed Floorplans",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Embed Dollhouse and 3D Models",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Custom Scene Transitions",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Set Initial Views of Scenes",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Clone Tours",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Custom Themes",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Custom Hotspot Icons",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Custom Logos and Branding",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Ambient Sounds and Music",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Hide Scenes from Ribbon",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Embed YouTube and Rich Media",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Link to External Websites",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Nadir Patch",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Limit Horizontal View",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Auto Linkback for Hotspots",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Full Mobile Workflow",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Reorder Scenes (Sort by Name and Date)",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Mobile VR Headset Compatible",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Oculus Compatible (Immersive VR)",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Share on Social Media",
+      freePlan: "Coming Soon",
+      proPlan: "Coming Soon",
+      proPlusPlan: "Coming Soon",
+      businessPlan: "Coming Soon",
+      enterprisePlan: "Coming Soon"
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Remove CloudPano Watermark",
+      freePlan: false,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Whitelabel your Tours",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Bring your own Domain",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Privacy Settings",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Password Protect Tours",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Upload to Google Street View",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Limit Tour Sharing Options",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Custom CSS",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Custom Javascript",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Google Analytics",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Add Chatbots and Custom calls-to-action",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Lead Generation tool",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Book Showings feature",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Calendly Integration",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Collections - Combine Tours into one URL",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "MLS Compliant (Real Estate Tours)",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TONS OF FEATURES",
+      feature: "Optional Live Video Chat",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "SHARING",
+      feature: "Embed anywhere using iFrame",
+      freePlan: false,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "SHARING",
+      feature: "Embed anywhere using Javascript",
+      freePlan: false,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "SHARING",
+      feature: "Publish to Google Street View",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "SHARING",
+      feature: "Publish to Realtor.com",
+      freePlan: false,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "SHARING",
+      feature: "Publish to MLS",
+      freePlan: false,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "SHARING",
+      feature: "Publish to Wordpress",
+      freePlan: false,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "SHARING",
+      feature: "Publish Collections of Tours into one URL",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "SHARING",
+      feature: "Download and Archive your Tours",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "SHARING",
+      feature: "Host Tours on your own Server",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "SHARING",
+      feature: "Publish to Dealer.com, DealerOn, eDealer.ca, Dealer Inspire, Dealer Spike, Dealercenter and more…",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TYPES OF SCENES",
+      feature: "360 Panoramas",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TYPES OF SCENES",
+      feature: "360 Video Panoramas",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TYPES OF SCENES",
+      feature: "2D Slideshow Scenes",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TYPES OF SCENES",
+      feature: "Outside-In 360 (Exterior Spins)",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TYPES OF SCENES",
+      feature: "eCommerce Product 360 Spins",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TYPES OF SCENES",
+      feature: "Automotive Exterior Spins",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TYPES OF SCENES",
+      feature: "2D Vehicle Detail Photos (Automotive)",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TYPES OF SCENES",
+      feature: "Dollhouse View",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TYPES OF SCENES",
+      feature: "Tiny Planet View",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TYPES OF SCENES",
+      feature: "Floorplan View",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TYPES OF SCENES",
+      feature: "Google Street View Scenes",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TYPES OF SCENES",
+      feature: "Side-by-side Panoramas",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TEAM COLLABORATION",
+      feature: "# of User Accounts",
+      freePlan: "1",
+      proPlan: "3+",
+      proPlusPlan: "10+",
+      businessPlan: "50+",
+      enterprisePlan: "Custom"
+    },
+    {
+      category: "TEAM COLLABORATION",
+      feature: "Share your Tours in Teams",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TEAM COLLABORATION",
+      feature: "Work on Tours with Colleagues",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TEAM COLLABORATION",
+      feature: "Manage Team Membership",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TEAM COLLABORATION",
+      feature: "Manage Teammember Permissions",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "TEAM COLLABORATION",
+      feature: "Role-based Accounts (Client/Creator, etc)",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "MOBILE COMPANION APPS",
+      feature: "Virtual Tour Creator App",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "MOBILE COMPANION APPS",
+      feature: "Automotive Spin Creator (iOS/Android)",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "MOBILE COMPANION APPS",
+      feature: "Optional Phone Rotator and Fisheye lens",
+      freePlan: "$119",
+      proPlan: "$119",
+      proPlusPlan: "Optional Phone Rotator and Fisheye lens $95",
+      businessPlan: "Optional Phone Rotator and Fisheye lens $95",
+      enterprisePlan: "Optional Phone Rotator and Fisheye lens $95"
+    },
+    {
+      category: "MOBILE COMPANION APPS",
+      feature: "Floor Plan Scanner Lidar App",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "CLOUDPANO LIVE VIDEO CHAT",
+      feature: "Live Video chat on Mobile and Desktop",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "CLOUDPANO LIVE VIDEO CHAT",
+      feature: "Host meetings in 360",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "CLOUDPANO LIVE VIDEO CHAT",
+      feature: "Markup Scenes with Drawing Tool",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "CLOUDPANO LIVE VIDEO CHAT",
+      feature: "Guide Viewers as you Navigate Tour",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "CLOUDPANO LIVE VIDEO CHAT",
+      feature: "Host and Participant Roles for Meetings",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "CLOUDPANO LIVE VIDEO CHAT",
+      feature: "Full screen Video Chat",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "CLOUDPANO LIVE VIDEO CHAT",
+      feature: "Share your screen",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "DEMO TOURS",
+      feature: "Browse CloudPano Community Tours",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "DEMO TOURS",
+      feature: "Free Demo Tours to use in your Portfolio",
+      freePlan: false,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "ADD-ONS",
+      feature: "API Access",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "ADD-ONS",
+      feature: "Order GLA-Compliant Floorplans",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: 'Volume discount available'
+    },
+    {
+      category: "ADD-ONS",
+      feature: "Order Dollhouse Models",
+      freePlan: '$1.65 per scene',
+      proPlan: '$1.65 per scene',
+      proPlusPlan: '$1.65 per scene',
+      businessPlan: '$1.65 per scene',
+      enterprisePlan: 'Volume discount available'
+    },
+    {
+      category: "ADD-ONS",
+      feature: "Order Tour Creation Services",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: 'Volume discount available'
+    },
+    {
+      category: "ADD-ONS",
+      feature: "Background Removal for Automotive Spins",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: false,
+      businessPlan: true,
+      enterprisePlan: 'Volume discount available'
+    },
+    {
+      category: "ADD-ONS",
+      feature: "Custom Development and Code",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: false,
+      businessPlan: false,
+      enterprisePlan: true
+    },
+    {
+      category: "SUPPORT",
+      feature: "FREE 15-min Product Success Demos",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "SUPPORT",
+      feature: "8am - 5pm US Central time Chat Support Mon-Fri",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "SUPPORT",
+      feature: "8am - 5pm US Central time Phone Support Mon-Fri",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "SUPPORT",
+      feature: "Named Customer Success Manager",
+      freePlan: false,
+      proPlan: false,
+      proPlusPlan: false,
+      businessPlan: true,
+      enterprisePlan: true
+    },
+    {
+      category: "SUPPORT",
+      feature: "Access to Facebook Community",
+      freePlan: true,
+      proPlan: true,
+      proPlusPlan: true,
+      businessPlan: true,
+      enterprisePlan: true
+    }
+  ]
+
   getSubscriptionPlans() {
     return [...this.subscriptionPlans];
   }
 
   getCameraList(){
     return [...this.cameraList]
+  }
+
+  getPlanTableDetails(){
+    return [...this.planComparisonTableDetails]
   }
 
 }
